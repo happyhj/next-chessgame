@@ -13,6 +13,6 @@ public class RookTest extends TestCase {
 		Rook rook = new Rook(Color.WHITE, position);		
 		List<Position> rookPossibleMoves = rook.getPossibleMoves();		
 
-		assertEquals(11, rookPossibleMoves.size());	
+		assertEquals(14, rookPossibleMoves.size());	
 	}
 }
