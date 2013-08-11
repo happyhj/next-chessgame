@@ -17,5 +17,4 @@ public class EmptyTest extends TestCase {
 		assertEquals(0, emptyPiecePossibleMoves.size());	
 	}
 	
-	
 }

@@ -9,6 +9,7 @@ public class Rook extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		PositionController controller = new PositionController(super.position);
+		return controller.findsDiagonalPositionAll();		
 	}
 }
