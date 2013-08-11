@@ -54,7 +54,7 @@ public class BoardTest extends TestCase {
 	public void testMovePiece() throws Exception {
 		board.initialize();
 		Position source = new Position("a2");
-		Piece sourcePiece = board.findPiece(source);
+		Piece sourcePiece = (Piece) board.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
 		Position target = new Position("a3");

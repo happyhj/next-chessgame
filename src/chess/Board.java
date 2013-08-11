@@ -3,9 +3,8 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
-import pieces.Direction;
 import pieces.Empty;
-import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Piece.Color;
 import pieces.Position;
 
@@ -45,12 +44,12 @@ public class Board {
 		}
 	}
 
-	Piece findPiece(String xy) {
+	PieceOperations findPiece(String xy) {
 		Position position = new Position(xy);
 		return findPiece(position);
 	}
 
-	Piece findPiece(Position position) {
+	PieceOperations findPiece(Position position) {
 		Rank rank = ranks.get(position.getY());
 		return rank.findPiece(position);
 	}
@@ -60,7 +59,7 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source);
+		PieceOperations targetPiece = findPiece(source);
 		boolean isColored = !targetPiece.equals(new Empty(Color.NOCOLOR,source));
 		boolean isVaildPosition = target.isValid();
 		List<Position> possibleMoves = new ArrayList<Position>();	
@@ -70,7 +69,7 @@ public class Board {
 		if(isColored&&isVaildPosition&&isVaildDirection){
 			boolean isNotSameTeam = !targetPiece.isSameTeam(findPiece(target));
 			if(isNotSameTeam) {
-				Piece sourcePiece = targetPiece.leave();
+				PieceOperations sourcePiece = targetPiece.leave();
 				
 				Rank sourceRank = ranks.get(source.getY());
 				sourceRank.move(sourcePiece, source);
