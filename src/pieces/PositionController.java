@@ -27,4 +27,9 @@ public class PositionController {
 		}
 		return positions;
 	}
+
+	public List<Position> findsEmptyPiecePossiblePositionAll() {
+		List<Position> positions = new ArrayList<Position>();
+		return positions;
+	}
 }
