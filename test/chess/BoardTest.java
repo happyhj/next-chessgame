@@ -105,6 +105,12 @@ public class BoardTest extends TestCase {
 		// 말의 종류에 맞지않은 이동을 하면 이동을 방지한다.
 		assertEquals(new Pawn(Color.WHITE, source), board.findPiece(source));		
 		assertEquals(new Empty(Color.NOCOLOR, target), board.findPiece(target));		
-
+	}
+	public void testHtmlExport() throws Exception {
+		board.initialize();
+		board.setExportingBoardStrategy(new HtmlExportingStrategy());
+		System.out.println(board.generateBoard());
+		board.setExportingBoardStrategy(new ConsoleExportingStrategy());
+		System.out.println(board.generateBoard());
 	}
 }

@@ -12,6 +12,12 @@ public class Board {
 	public static final String NEW_LINE = System.getProperty("line.separator");
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
+
+	private ExportingBoardStrategy exportingStrategy = new ConsoleExportingStrategy();
+
+	void setExportingBoardStrategy(ExportingBoardStrategy exportingStrategy) {
+		this.exportingStrategy = exportingStrategy;
+	}
 	
 	List<Rank> ranks = new ArrayList<Rank>();
 	
@@ -80,18 +86,14 @@ public class Board {
 		}
 	}
 	
-	String generateRank(int rankIndex) {
+	public String generateRank(int rankIndex) {
 		Rank rank = ranks.get(rankIndex);
 		StringBuilder sb = new StringBuilder();
 		sb.append(rank.generate());
 		return sb.toString();
-	}
-
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
+	}	
+	
+	public String generateBoard(){
+		return this.exportingStrategy.generateBoard(ranks);
 	}
 }
