@@ -6,7 +6,7 @@ import pieces.Piece.Color;
 import junit.framework.TestCase;
 
 public class BishopTest extends TestCase {
-	public void testGetPossibleMovesOfRook() throws Exception {
+	public void testGetPossibleMovesOfBishop() throws Exception {
 		int startX = 4;
 		int startY = 5;
 		Position position = new Position(startX, startY);		
