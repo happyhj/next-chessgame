@@ -64,7 +64,14 @@ public class BoardTest extends TestCase {
 		System.out.println(board.generateBoard());
 	}
 	
-	public void testname() throws Exception {
+	public void testNoMoveForEmptyPiece() throws Exception {
+		board.initialize();
+		Position source = new Position("a3");		
+		Position target = new Position("a2");
 		
+		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));		
+		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));		
+		board.movePiece(source, target);
+		// 빈 말을 움직이게 되면 move 후 target 위치가 empty가 되는데 이를 방지하기 때문에 Pawn이 그냥 존재한다.		
 	}
 }
