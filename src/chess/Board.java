@@ -60,7 +60,7 @@ public class Board {
 
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);
-		if(!targetPiece.equals(new Empty(Color.NOCOLOR,source))){
+		if((!targetPiece.equals(new Empty(Color.NOCOLOR,source)))&&(target.isValid())){
 			Piece sourcePiece = targetPiece.leave();
 			
 			Rank sourceRank = ranks.get(source.getY());

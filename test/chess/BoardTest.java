@@ -73,5 +73,16 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));		
 		board.movePiece(source, target);
 		// 빈 말을 움직이게 되면 move 후 target 위치가 empty가 되는데 이를 방지하기 때문에 Pawn이 그냥 존재한다.		
+		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));		
+	}
+	public void testNoMoveToInvalidPosition() throws Exception {
+		board.initialize();
+		Position source = new Position(0,6);
+		Position target = new Position(0,8);
+		
+		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));		
+		board.movePiece(source, target);
+		// 보드판 좌표 바깥으로 나갈려고 하면 이동을 방지한다.
+		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));		
 	}
 }
