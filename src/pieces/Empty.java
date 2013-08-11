@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Empty extends Piece {
@@ -9,7 +10,6 @@ public class Empty extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		PositionController controller = new PositionController(super.position);
-		return controller.findsEmptyPiecePossiblePositionAll();
+		return new ArrayList<Position>();
 	}
 }
