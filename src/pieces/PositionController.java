@@ -28,22 +28,4 @@ public class PositionController {
 		return positions;
 	}
 	
-	public List<Position> findsKingPositionAll() {
-		List<Position> positions = new ArrayList<Position>();
-		
-		Direction[] diagonals = Direction.diagonalDirection();		
-		for (Direction direction : diagonals) {
-			if(position.move(direction).isValid())
-				positions.add(position.move(direction));
-		}
-	
-		Direction[] linears = Direction.linearDirection();
-		for (Direction direction : linears) {
-			if(position.move(direction).isValid())
-				positions.add(position.move(direction));
-		}		
-		
-		return positions;		
-	}
-	
 }

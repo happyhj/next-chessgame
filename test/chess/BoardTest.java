@@ -63,4 +63,8 @@ public class BoardTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testname() throws Exception {
+		
+	}
 }
