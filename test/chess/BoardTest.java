@@ -112,5 +112,14 @@ public class BoardTest extends TestCase {
 		System.out.println(board.generateBoard());
 		board.setExportingBoardStrategy(new ConsoleExportingStrategy());
 		System.out.println(board.generateBoard());
+		
+		Position source = new Position(0,6);
+		Position target = new Position(0,4);
+		board.movePiece(source, target);
+
+		board.setExportingBoardStrategy(new HtmlExportingStrategy());
+		System.out.println(board.generateBoard());
+		board.setExportingBoardStrategy(new ConsoleExportingStrategy());
+		System.out.println(board.generateBoard());
 	}
 }
