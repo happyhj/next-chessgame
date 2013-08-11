@@ -10,7 +10,7 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> positions = new ArrayList<Position>();		
 		Direction[] knightDirection = Direction.knightDirection();
 		for(Direction direction:knightDirection){

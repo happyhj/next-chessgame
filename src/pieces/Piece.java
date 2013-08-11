@@ -83,7 +83,7 @@ public abstract class Piece {
 		return true;
 	}
 	
-	abstract List<Position> getPossibleMoves();
+	public abstract List<Position> getPossibleMoves();
 	
 	@Override
 	public int hashCode() {

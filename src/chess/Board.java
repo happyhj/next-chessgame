@@ -3,6 +3,7 @@ package chess;
 import java.util.ArrayList;
 import java.util.List;
 
+import pieces.Direction;
 import pieces.Empty;
 import pieces.Piece;
 import pieces.Piece.Color;
@@ -62,8 +63,11 @@ public class Board {
 		Piece targetPiece = findPiece(source);
 		boolean isColored = !targetPiece.equals(new Empty(Color.NOCOLOR,source));
 		boolean isVaildPosition = target.isValid();
+		List<Position> possibleMoves = new ArrayList<Position>();	
+		possibleMoves = targetPiece.getPossibleMoves();
+		boolean isVaildDirection = possibleMoves.contains(target);
 
-		if(isColored&&isVaildPosition){
+		if(isColored&&isVaildPosition&&isVaildDirection){
 			boolean isNotSameTeam = !targetPiece.isSameTeam(findPiece(target));
 			if(isNotSameTeam) {
 				Piece sourcePiece = targetPiece.leave();

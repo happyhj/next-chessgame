@@ -14,7 +14,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> positions = new ArrayList<Position>();		
 		// 흰색일 경우 북쪽으로 한칸 이동가능
 		if((super.color==Color.WHITE)&&(super.position.move(Direction.NORTH).isValid())) {

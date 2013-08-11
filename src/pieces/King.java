@@ -10,7 +10,7 @@ public class King extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		List<Position> positions = new ArrayList<Position>();
 				
 		Direction[] diagonals = Direction.diagonalDirection();	

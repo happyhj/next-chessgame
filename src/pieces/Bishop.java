@@ -9,7 +9,7 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController controller = new PositionController(super.position);
 		return controller.findsDiagonalPositionAll();	
 	}
