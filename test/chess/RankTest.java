@@ -63,10 +63,10 @@ public class RankTest extends TestCase {
 		Position source = new Position("d2");
 		Position target = new Position("d3");
 		
-		Piece sourcePiece = rank.findPiece(source);
+		Piece sourcePiece = (Piece) rank.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
-		Piece targetPiece = rank.move(sourcePiece, target);
+		Piece targetPiece = (Piece) rank.move(sourcePiece, target);
 		assertEquals(new Pawn(Color.WHITE, target), targetPiece);
 	}
 }
