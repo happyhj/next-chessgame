@@ -60,14 +60,20 @@ public class Board {
 
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);
-		if((!targetPiece.equals(new Empty(Color.NOCOLOR,source)))&&(target.isValid())){
-			Piece sourcePiece = targetPiece.leave();
-			
-			Rank sourceRank = ranks.get(source.getY());
-			sourceRank.move(sourcePiece, source);
-			
-			Rank targetRank = ranks.get(target.getY());
-			targetRank.move(targetPiece, target);			
+		boolean isColored = !targetPiece.equals(new Empty(Color.NOCOLOR,source));
+		boolean isVaildPosition = target.isValid();
+
+		if(isColored&&isVaildPosition){
+			boolean isNotSameTeam = !targetPiece.isSameTeam(findPiece(target));
+			if(isNotSameTeam) {
+				Piece sourcePiece = targetPiece.leave();
+				
+				Rank sourceRank = ranks.get(source.getY());
+				sourceRank.move(sourcePiece, source);
+				
+				Rank targetRank = ranks.get(target.getY());
+				targetRank.move(targetPiece, target);
+			}
 		}
 	}
 	

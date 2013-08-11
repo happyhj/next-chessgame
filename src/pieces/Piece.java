@@ -76,6 +76,13 @@ public abstract class Piece {
 		return this;
 	}
 	
+	public boolean isSameTeam(Object obj) {
+		Piece other = (Piece) obj;
+		if (color != other.color)
+			return false;
+		return true;
+	}
+	
 	abstract List<Position> getPossibleMoves();
 	
 	@Override

@@ -85,4 +85,14 @@ public class BoardTest extends TestCase {
 		// 보드판 좌표 바깥으로 나갈려고 하면 이동을 방지한다.
 		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));		
 	}
+	public void testNoMoveToOurTeam() throws Exception {
+		board.initialize();
+		Position source = new Position(0,6);
+		Position target = new Position(0,7);
+		
+		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));		
+		board.movePiece(source, target);
+		// 아군을 잡으려고 하면 이동을 방지한다.
+		assertEquals(new Pawn(Color.BLACK, source), board.findPiece(source));		
+	}
 }
